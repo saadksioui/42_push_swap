@@ -6,7 +6,7 @@
 /*   By: sksioui <sksioui@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:33:42 by sksioui           #+#    #+#             */
-/*   Updated: 2025/12/20 08:45:50 by sksioui          ###   ########.fr       */
+/*   Updated: 2025/12/23 14:34:19 by sksioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int	split_words(char **arr, const char *s, char c)
 
 char	**ft_split(const char *s, char c)
 {
-	char **arr;
+	char	**arr;
 
 	if (!s)
 		return (NULL);

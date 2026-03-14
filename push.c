@@ -6,13 +6,13 @@
 /*   By: sksioui <sksioui@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 20:25:06 by sksioui           #+#    #+#             */
-/*   Updated: 2025/12/12 13:23:36 by sksioui          ###   ########.fr       */
+/*   Updated: 2025/12/23 04:22:33 by sksioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_stack **a, t_stack **b)
+void	pa(t_stack **a, t_stack **b, int print)
 {
 	t_stack	*move_b;
 
@@ -34,12 +34,13 @@ void	pa(t_stack **a, t_stack **b)
 		(*a)->prev = move_b;
 		*a = move_b;
 	}
-	write(1, "pa\n", 3);
+	if (print)
+		write(1, "pa\n", 3);
 }
 
-void	pb(t_stack **a, t_stack **b)
+void	pb(t_stack **a, t_stack **b, int print)
 {
-	t_stack *move_a;
+	t_stack	*move_a;
 
 	if (!*a)
 		return ;
@@ -59,5 +60,6 @@ void	pb(t_stack **a, t_stack **b)
 		(*b)->prev = move_a;
 		*b = move_a;
 	}
-	write(1, "pb\n", 3);
+	if (print)
+		write(1, "pb\n", 3);
 }

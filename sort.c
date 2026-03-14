@@ -6,7 +6,7 @@
 /*   By: sksioui <sksioui@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 08:40:30 by sksioui           #+#    #+#             */
-/*   Updated: 2025/12/20 09:19:17 by sksioui          ###   ########.fr       */
+/*   Updated: 2025/12/23 03:02:26 by sksioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	sort_five(t_stack **a, t_stack **b)
 	a_size = ft_lstsize(*a);
 	while (a_size > 3)
 	{
-		min = find_min_val(*a);
+		min = get_min_index(*a);
 		pos = get_pos(*a, min);
 		if (pos <= a_size / 2)
 		{
@@ -70,10 +70,10 @@ void	sort_five(t_stack **a, t_stack **b)
 			while ((*a)->index != min)
 				rra(a, 1);
 		}
-		pb(a, b);
+		pb(a, b, 1);
 		a_size--;
 	}
-	sort_small(a);
+	sort_three(a);
 	while (*b)
-		pa(a, b);
+		pa(a, b, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: sksioui <sksioui@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 17:48:19 by sksioui           #+#    #+#             */
-/*   Updated: 2025/12/20 17:48:20 by sksioui          ###   ########.fr       */
+/*   Updated: 2025/12/24 10:52:41 by sksioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	check_syntax(char *str_n)
 	i = 0;
 	if (str_n[i] == '-' || str_n[i] == '+')
 		i++;
+	if (!str_n[i])
+		return (0);
 	while (str_n[i] != '\0')
 	{
 		if (!ft_isdigit(str_n[i]))
@@ -33,7 +35,7 @@ int	check_syntax(char *str_n)
 int	check_duplicate(t_stack *a, int nbr)
 {
 	if (!a)
-		return (0);
+		return (1);
 	while (a)
 	{
 		if (a->value == nbr)

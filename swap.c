@@ -6,7 +6,7 @@
 /*   By: sksioui <sksioui@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 20:24:57 by sksioui           #+#    #+#             */
-/*   Updated: 2025/12/12 13:38:07 by sksioui          ###   ########.fr       */
+/*   Updated: 2025/12/23 04:22:57 by sksioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,10 @@ void	sb(t_stack **b, int print)
 		write(1, "sb\n", 3);
 }
 
-void	ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b, int print)
 {
 	sa(a, 0);
 	sb(b, 0);
-	write(1, "ss\n", 3);
+	if (print)
+		write(1, "ss\n", 3);
 }

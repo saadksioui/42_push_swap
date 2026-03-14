@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sksioui <sksioui@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/20 09:22:59 by sksioui           #+#    #+#             */
-/*   Updated: 2025/12/24 09:46:26 by sksioui          ###   ########.fr       */
+/*   Created: 2025/12/23 01:41:32 by sksioui           #+#    #+#             */
+/*   Updated: 2025/12/24 09:46:14 by sksioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 int	is_sorted(t_stack *a)
 {
@@ -41,25 +41,37 @@ void	free_stack(t_stack **stack)
 	}
 }
 
-void	sort_stack(t_stack **a, t_stack **b)
+void	ft_error_checker(t_stack **a, t_stack **b)
 {
-	int	size;
+	if (*a)
+		free_stack(a);
+	if (*b)
+		free_stack(b);
+	ft_error();
+}
 
-	size = ft_lstsize(*a);
-	if (size == 2)
-		sa(a, 1);
-	else if (size == 3)
-		sort_three(a);
-	else if (size <= 5)
-		sort_five(a, b);
+void	checker(t_stack **a, t_stack **b, char *line)
+{
+	if (ft_strcmp(line, "sa\n") == 0 || ft_strcmp(line, "sb\n") == 0
+		|| ft_strcmp(line, "ss\n") == 0 || ft_strcmp(line, "pa\n") == 0
+		|| ft_strcmp(line, "pb\n") == 0)
+		checker_s_p(a, b, line);
+	else if (ft_strcmp(line, "ra\n") == 0 || ft_strcmp(line, "rb\n") == 0
+		|| ft_strcmp(line, "rr\n") == 0 || ft_strcmp(line, "rra\n") == 0
+		|| ft_strcmp(line, "rrb\n") == 0 || ft_strcmp(line, "rrr\n") == 0)
+		checker_r(a, b, line);
 	else
-		chunk_sorting_algo(a, b);
+	{
+		free(line);
+		ft_error_checker(a, b);
+	}
 }
 
 int	main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	char	*line;
 
 	if (argc == 1)
 		return (0);
@@ -69,11 +81,16 @@ int	main(int argc, char *argv[])
 	stack_b = NULL;
 	stack_init(&stack_a, argv, argc);
 	index_stack(stack_a);
-	if (is_sorted(stack_a))
+	line = get_next_line(0);
+	while (line)
 	{
-		free_stack(&stack_a);
-		return (0);
+		checker(&stack_a, &stack_b, line);
+		free(line);
+		line = get_next_line(0);
 	}
-	sort_stack(&stack_a, &stack_b);
+	if (is_sorted(stack_a) && ft_lstsize(stack_b) == 0)
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
 	return (free_stack(&stack_a), free_stack(&stack_b), 0);
 }

@@ -6,7 +6,7 @@
 /*   By: sksioui <sksioui@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 08:59:33 by sksioui           #+#    #+#             */
-/*   Updated: 2025/12/20 10:18:04 by sksioui          ###   ########.fr       */
+/*   Updated: 2025/12/23 14:33:36 by sksioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	sort_array(int *tab, int size)
 			{
 				tmp = tab[i];
 				tab[i] = tab[j];
-				tab[j] = tab[i];
+				tab[j] = tmp;
 			}
 			j++;
 		}
@@ -67,6 +67,8 @@ void	index_stack(t_stack *a)
 		return ;
 	size = ft_lstsize(a);
 	tab = fill_array(a, size);
+	if (!tab)
+		ft_error_and_free(&a, NULL);
 	sort_array(tab, size);
 	while (a)
 	{

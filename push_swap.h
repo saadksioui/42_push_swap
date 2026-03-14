@@ -6,7 +6,7 @@
 /*   By: sksioui <sksioui@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 20:25:11 by sksioui           #+#    #+#             */
-/*   Updated: 2025/12/20 15:44:39 by sksioui          ###   ########.fr       */
+/*   Updated: 2025/12/23 14:27:24 by sksioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,18 @@ typedef struct s_stack
 // Swap Rules
 void				sa(t_stack **a, int print);
 void				sb(t_stack **b, int print);
-void				ss(t_stack **a, t_stack **b);
+void				ss(t_stack **a, t_stack **b, int print);
 // Push Rules
-void				pa(t_stack **a, t_stack **b);
-void				pb(t_stack **a, t_stack **b);
+void				pa(t_stack **a, t_stack **b, int print);
+void				pb(t_stack **a, t_stack **b, int print);
 // Rotate Rules
 void				ra(t_stack **a, int print);
 void				rb(t_stack **b, int print);
-void				rr(t_stack **a, t_stack **b);
+void				rr(t_stack **a, t_stack **b, int print);
 // Rev-Rotate Rules
 void				rra(t_stack **a, int print);
 void				rrb(t_stack **b, int print);
-void				rrr(t_stack **a, t_stack **b);
+void				rrr(t_stack **a, t_stack **b, int print);
 
 // List Utils
 int					ft_lstsize(t_stack *stack);
@@ -85,7 +85,7 @@ void				free_stack(t_stack **stack);
 void				sort_stack(t_stack **a, t_stack **b);
 
 // Sorting Algorithm For push_swap
-void				push_to_b(t_stack **a, t_stack **b);
+void				push_to_b(t_stack **a, t_stack **b, int chunk_base);
 void				push_to_a(t_stack **a, t_stack **b);
 void				chunk_sorting_algo(t_stack **a, t_stack **b);
 

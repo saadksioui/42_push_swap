@@ -6,7 +6,7 @@
 /*   By: sksioui <sksioui@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 08:44:51 by sksioui           #+#    #+#             */
-/*   Updated: 2025/12/20 13:52:15 by sksioui          ###   ########.fr       */
+/*   Updated: 2025/12/23 04:25:02 by sksioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	free_argv(char **argv)
 	int	i;
 
 	if (!argv)
-		return (NULL);
+		return ;
 	i = 0;
 	while (argv[i])
 	{
@@ -63,7 +63,7 @@ void	ft_error(void)
 void	ft_error_and_free(t_stack **a, char **args)
 {
 	if (*a)
-		free_stack(*a);
+		free_stack(a);
 	if (args)
 		free_argv(args);
 	ft_error();

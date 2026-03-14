@@ -6,7 +6,7 @@
 /*   By: sksioui <sksioui@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 08:50:23 by sksioui           #+#    #+#             */
-/*   Updated: 2025/12/20 08:50:24 by sksioui          ###   ########.fr       */
+/*   Updated: 2025/12/23 14:34:02 by sksioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ t_stack	*ft_lstlast(t_stack *stack)
 
 void	ft_lstadd_back(t_stack **stack, t_stack *new)
 {
-	t_stack *last;
+	t_stack	*last;
 
 	if (!new)
 		return ;
